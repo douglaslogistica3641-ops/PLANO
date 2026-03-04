@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FORM-120 Rev.2 – Plano Consolidado Melhorado | Macaé Navegação</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:     #f2ede3;
+  --paper2:    #e8e2d4;
+  --paper3:    #ddd6c4;
+  --white:     #ffffff;
+  --ink:       #18202e;
+  --ink2:      #2c3a4e;
+  --ink3:      #4a5a6e;
+  --ink4:      #7a8a9e;
+
+  --navy:      #0b2540;
+  --navy2:     #163660;
+  --navy3:     #1e4fa0;
+  --navy-tint: #e0eaf8;
+
+  --steel:     #1c3d6a;
+  --steel2:    #2d5a90;
+  --steel-tint:#d4e4f5;
+
+  --wood:      #6b3e1e;
+  --wood2:     #9a5c2e;
+  --wood-tint: #f4e4d0;
+
+  --green:     #14542e;
+  --green2:    #1f7a44;
+  --green-tint:#d4f0e0;
+
+  --amber:     #92420a;
+  --amber2:    #c05a0e;
+  --amber-tint:#fde8cc;
+
+  --red:       #7f1616;
+  --red2:      #b02020;
+  --red-tint:  #fad4d4;
+
+  --teal:      #0b5e5e;
+  --teal2:     #148080;
+  --teal-tint: #cceaea;
+
+  --orange:    #8c3a00;
+  --orange-tint:#fde0cc;
+
+  --border:    #c0b8a8;
+  --border2:   #a8a094;
+  --shadow:    rgba(11,37,64,.10);
+
+  --r: 5px;
+  --ff-h: 'Syne', sans-serif;
+  --ff-b: 'DM Sans', sans-serif;
+  --ff-m: 'DM Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+html { scroll-behavior: smooth; font-size:14px; }
+
+body {
+  font-family: var(--ff-b);
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+/* Blueprint grid */
+body::before {
+  content:'';
+  position:fixed; inset:0;
+  background-image:
+    linear-gradient(rgba(11,37,64,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11,37,64,.03) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events:none; z-index:0;
+}
+.z1 { position:relative; z-index:1; }
+
+/* ══ HEADER ═══════════════════════════════════════ */
+.header {
+  background: var(--navy);
+  padding: 0 40px;
+  display: flex; align-items: stretch;
+  border-bottom: 4px solid var(--navy3);
+  box-shadow: 0 4px 24px var(--shadow);
+  position: sticky; top:0; z-index:200;
+}
+
+.header-brand {
+  display:flex; align-items:center; gap:14px;
+  padding: 14px 28px 14px 0;
+  border-right: 1px solid rgba(255,255,255,.08);
+  margin-right: 28px;
+}
+
+.logo-hex {
+  width:42px; height:42px;
+  background: linear-gradient(135deg, var(--navy3), var(--teal2));
+  border-radius: var(--r);
+  display:flex; align-items:center; justify-content:center;
+  font-size:20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.3);
+}
+
+.brand-name {
+  font-family: var(--ff-h);
+  font-size:17px; font-weight:800;
+  letter-spacing:.5px; color:#fff; line-height:1.1;
+}
+.brand-sub {
+  font-size:9px; font-weight:400;
+  letter-spacing:3px; text-transform:uppercase;
+  color:rgba(255,255,255,.35);
+}
+
+.header-center { flex:1; display:flex; align-items:center; gap:20px; }
+
+.doc-info { flex:1; }
+.doc-title {
+  font-family: var(--ff-h);
+  font-size:13px; font-weight:700;
+  letter-spacing:1.5px; text-transform:uppercase;
+  color:rgba(255,255,255,.92);
+}
+.doc-meta {
+  font-family: var(--ff-m);
+  font-size:10px; color:rgba(255,255,255,.32);
+  margin-top:2px;
+}
+
+.rev-badge {
+  background: rgba(255,210,0,.15);
+  border: 1px solid rgba(255,210,0,.35);
+  color: #ffd200;
+  font-family: var(--ff-h);
+  font-size:10px; font-weight:800;
+  letter-spacing:2px;
+  padding: 4px 12px;
+  border-radius:20px;
+}
+
+.header-stats {
+  display:flex; align-items:center; gap:10px;
+  padding:14px 0;
+}
+
+.hstat {
+  text-align:center;
+  padding:6px 14px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.12);
+}
+.hstat-n {
+  font-family:var(--ff-h);
+  font-weight:800; font-size:20px;
+  color:#fff; line-height:1;
+}
+.hstat-l {
+  font-size:8px; letter-spacing:2px;
+  text-transform:uppercase; color:rgba(255,255,255,.35);
+  margin-top:1px;
+}
+.hstat.a { background:rgba(30,79,160,.35); border-color:rgba(30,79,160,.6); }
+.hstat.w { background:rgba(107,62,30,.35); border-color:rgba(154,92,46,.6); }
+.hstat.n { background:rgba(20,128,128,.2); border-color:rgba(20,128,128,.4); }
+
+.btn-print {
+  font-family:var(--ff-h); font-weight:700; font-size:10px;
+  letter-spacing:1.5px; text-transform:uppercase;
+  padding:8px 16px; border-radius:var(--r);
+  border:1.5px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.06); color:rgba(255,255,255,.7);
+  cursor:pointer; transition:all .15s; white-space:nowrap;
+}
+.btn-print:hover { background:rgba(255,255,255,.14); color:#fff; }
+
+/* ══ CONTROLS ══════════════════════════════════════ */
+.controls {
+  background: var(--white);
+  border-bottom:1px solid var(--border);
+  padding:12px 40px;
+  display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+  box-shadow:0 2px 10px var(--shadow);
+}
+
+.search-wrap { position:relative; min-width:200px; max-width:340px; flex:1; }
+.search-icon { position:absolute; left:11px; top:50%; transform:translateY(-50%); color:var(--ink4); font-size:13px; pointer-events:none; }
+.search-input {
+  width:100%; padding:8px 10px 8px 34px;
+  border:1px solid var(--border); border-radius:var(--r);
+  font-family:var(--ff-b); font-size:12px; color:var(--ink);
+  background:var(--paper); outline:none; transition:border-color .15s;
+}
+.search-input:focus { border-color:var(--navy3); background:#fff; }
+
+.vsep { width:1px; height:26px; background:var(--border); flex-shrink:0; }
+
+.flabel {
+  font-family:var(--ff-h); font-size:9px; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase; color:var(--ink4);
+  white-space:nowrap;
+}
+
+.chips { display:flex; gap:5px; flex-wrap:wrap; }
+
+.chip {
+  font-family:var(--ff-h); font-size:10px; font-weight:700;
+  letter-spacing:1px; text-transform:uppercase;
+  padding:4px 11px; border-radius:20px;
+  border:1.5px solid var(--border);
+  background:transparent; cursor:pointer;
+  transition:all .15s; color:var(--ink3);
+  white-space:nowrap;
+}
+.chip:hover { border-color:var(--navy3); color:var(--navy); }
+.chip.on-all      { background:var(--navy); color:#fff; border-color:var(--navy); }
+.chip.on-aco      { background:var(--steel); color:#fff; border-color:var(--steel); }
+.chip.on-wood     { background:var(--wood); color:#fff; border-color:var(--wood); }
+.chip.on-nova     { background:var(--teal); color:#fff; border-color:var(--teal); }
+.chip.on-semanal  { background:#1e3a6e; color:#aac4ff; border-color:#2a5090; }
+.chip.on-mensal   { background:var(--green); color:#fff; border-color:var(--green); }
+.chip.on-semestral{ background:var(--amber); color:#fff; border-color:var(--amber); }
+.chip.on-anual    { background:var(--red); color:#fff; border-color:var(--red); }
+
+.count-pill {
+  margin-left:auto;
+  font-family:var(--ff-m); font-size:10px; color:var(--ink4);
+  background:var(--paper2); padding:4px 12px;
+  border-radius:20px; border:1px solid var(--border);
+  white-space:nowrap;
+}
+
+/* ══ BODY ══════════════════════════════════════════ */
+.body-wrap {
+  display:flex; gap:26px;
+  max-width:1440px; margin:0 auto;
+  padding:28px 40px 60px;
+}
+
+/* ── SIDEBAR ── */
+.sidebar { width:230px; flex-shrink:0; position:sticky; top:112px; height:fit-content; }
+
+.sb-section { margin-bottom:18px; }
+
+.sb-heading {
+  font-family:var(--ff-h); font-size:9px; font-weight:700;
+  letter-spacing:3px; text-transform:uppercase; color:var(--ink4);
+  padding-bottom:5px; border-bottom:1px solid var(--border); margin-bottom:8px;
+}
+
+.sb-item {
+  display:flex; align-items:center; gap:8px;
+  padding:4px 0; font-size:11px; color:var(--ink3);
+  cursor:pointer; transition:color .15s;
+}
+.sb-item:hover { color:var(--ink); }
+
+.sb-dot  { width:9px; height:9px; border-radius:50%; flex-shrink:0; }
+.sb-rect { width:12px; height:7px; border-radius:2px; flex-shrink:0; }
+.sb-n    { margin-left:auto; font-family:var(--ff-m); font-size:10px; color:var(--ink4); }
+
+.sb-divider { height:1px; background:var(--border); margin:14px 0; }
+
+/* ─── MELHORIA BOX ─── */
+.melhoria-panel {
+  background: linear-gradient(135deg, var(--navy) 0%, #1a3a6a 100%);
+  border-radius:var(--r);
+  padding:16px;
+  margin-bottom:16px;
+  border:1px solid var(--navy2);
+}
+
+.mp-title {
+  font-family:var(--ff-h); font-size:9px; font-weight:700;
+  letter-spacing:3px; text-transform:uppercase;
+  color:rgba(255,255,255,.4); margin-bottom:10px;
+}
+
+.mp-row {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:5px 0; border-bottom:1px solid rgba(255,255,255,.06);
+  font-size:11px;
+}
+.mp-row:last-child { border-bottom:none; }
+.mp-label { color:rgba(255,255,255,.55); }
+.mp-val { font-family:var(--ff-m); font-weight:500; color:#fff; }
+.mp-val.g { color:#6ee7b7; }
+.mp-val.a { color:#fde68a; }
+.mp-val.r { color:#fca5a5; }
+
+/* ─── SUMMARY BOX ─── */
+.summary-box {
+  background:var(--navy);
+  color:#fff;
+  border-radius:var(--r);
+  padding:14px;
+  border:1px solid var(--navy2);
+}
+.sb2-title {
+  font-family:var(--ff-h); font-size:9px; font-weight:700;
+  letter-spacing:3px; text-transform:uppercase;
+  color:rgba(255,255,255,.35); margin-bottom:10px;
+}
+.sb2-row {
+  display:flex; justify-content:space-between;
+  font-size:10px; padding:3px 0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  color:rgba(255,255,255,.6);
+}
+.sb2-row:last-child { border-bottom:none; }
+.sb2-val { font-family:var(--ff-m); font-weight:500; color:#fff; }
+
+/* ══ MAIN AREA ══════════════════════════════════════ */
+.main { flex:1; min-width:0; }
+
+/* ─── PAINEL DE MELHORIAS ─── */
+.melhorias-section {
+  background:var(--white);
+  border:1px solid var(--border);
+  border-left:4px solid var(--teal2);
+  border-radius:var(--r);
+  overflow:hidden;
+  margin-bottom:24px;
+  box-shadow:0 2px 12px var(--shadow);
+}
+
+.ms-header {
+  background: linear-gradient(to right, var(--teal), var(--navy));
+  padding:16px 22px;
+  display:flex; align-items:center; justify-content:space-between;
+  cursor:pointer;
+}
+
+.ms-title {
+  font-family:var(--ff-h); font-weight:800;
+  font-size:14px; letter-spacing:1.5px;
+  text-transform:uppercase; color:#fff;
+}
+.ms-sub { font-size:11px; color:rgba(255,255,255,.55); margin-top:2px; }
+
+.ms-toggle {
+  font-size:12px; color:rgba(255,255,255,.5);
+  transition:transform .2s;
+}
+.ms-toggle.open { transform:rotate(90deg); }
+
+.ms-body { padding:20px 22px; display:none; }
+.ms-body.open { display:block; }
+
+.melhoria-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.mcard {
+  background:var(--paper);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:14px 16px;
+  border-left:3px solid;
+  position:relative;
+}
+
+.mcard.critica    { border-left-color:var(--red2); }
+.mcard.importante { border-left-color:var(--amber2); }
+.mcard.recomend   { border-left-color:var(--navy3); }
+.mcard.nova-ins   { border-left-color:var(--teal2); }
+
+.mcard-tag {
+  display:inline-flex; align-items:center; gap:4px;
+  font-family:var(--ff-h); font-size:9px; font-weight:700;
+  letter-spacing:1.5px; text-transform:uppercase;
+  padding:2px 7px; border-radius:2px; margin-bottom:8px;
+}
+
+.tag-critica    { background:var(--red-tint); color:var(--red2); }
+.tag-importante { background:var(--amber-tint); color:var(--amber2); }
+.tag-recomend   { background:var(--navy-tint); color:var(--navy2); }
+.tag-nova       { background:var(--teal-tint); color:var(--teal2); }
+
+.mcard-title {
+  font-family:var(--ff-h); font-size:13px; font-weight:700;
+  color:var(--ink); margin-bottom:5px;
+}
+
+.mcard-text {
+  font-size:12px; color:var(--ink3); line-height:1.6;
+}
+
+.mcard-ins {
+  margin-top:8px;
+  display:flex; flex-wrap:wrap; gap:4px;
+}
+
+.ins-ref {
+  font-family:var(--ff-m); font-size:10px;
+  padding:2px 6px; border-radius:2px;
+  background:var(--paper2); color:var(--ink3);
+  border:1px solid var(--border);
+}
+
+/* ══ TABELA FREQ ══════════════════════════════════ */
+.freq-block { margin-bottom:24px; }
+
+.freq-head {
+  display:flex; align-items:center; gap:14px;
+  padding:13px 20px; border-radius:var(--r) var(--r) 0 0;
+  cursor:pointer; user-select:none; transition:filter .15s;
+  border:1px solid transparent;
+}
+.freq-head:hover { filter:brightness(1.06); }
+
+.freq-head.sem  { background:#1e3a6e; border-color:#2a5090; }
+.freq-head.men  { background:var(--green); border-color:var(--green2); }
+.freq-head.smt  { background:var(--amber); border-color:var(--amber2); }
+.freq-head.anu  { background:var(--red); border-color:var(--red2); }
+
+.fh-title {
+  font-family:var(--ff-h); font-weight:800;
+  font-size:20px; letter-spacing:1px;
+  text-transform:uppercase; color:rgba(255,255,255,.95);
+  line-height:1;
+}
+.fh-sub {
+  font-family:var(--ff-m); font-size:10px;
+  color:rgba(255,255,255,.45); margin-top:2px;
+}
+
+.fh-count {
+  background:rgba(0,0,0,.2); padding:3px 12px;
+  border-radius:20px; font-family:var(--ff-m);
+  font-size:10px; color:rgba(255,255,255,.65);
+  margin-left:auto; margin-right:6px;
+}
+.fh-new {
+  background:rgba(0,200,180,.25); border:1px solid rgba(0,200,180,.4);
+  padding:3px 8px; border-radius:20px;
+  font-family:var(--ff-h); font-size:9px; font-weight:700;
+  letter-spacing:1px; text-transform:uppercase;
+  color:#a0faf0;
+}
+
+.fh-chev {
+  color:rgba(255,255,255,.45); font-size:12px;
+  transition:transform .2s;
+}
+.freq-head.open .fh-chev { transform:rotate(90deg); }
+
+/* ── TABLE ── */
+.tbl-wrap {
+  display:none;
+  border:1px solid var(--border);
+  border-top:none;
+  border-radius:0 0 var(--r) var(--r);
+  overflow:hidden;
+  box-shadow:0 4px 16px var(--shadow);
+}
+.tbl-wrap.open { display:block; }
+
+table.ptbl {
+  width:100%; border-collapse:collapse;
+}
+
+table.ptbl thead tr {
+  background:var(--paper2);
+  border-bottom:2px solid var(--border2);
+}
+table.ptbl thead th {
+  font-family:var(--ff-h); font-size:9px; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase; color:var(--ink4);
+  padding:9px 14px; text-align:left; white-space:nowrap;
+}
+
+/* group separator */
+tr.gsep td {
+  background:var(--paper3);
+  padding:5px 14px;
+  font-family:var(--ff-h); font-size:9px; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase; color:var(--ink4);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+tr.gsep.aco td { border-left:3px solid var(--navy3); }
+tr.gsep.wood td{ border-left:3px solid var(--wood2); }
+
+/* data rows */
+tr.irow {
+  border-bottom:1px solid var(--border);
+  transition:background .1s;
+}
+tr.irow:hover { background:var(--paper); }
+tr.irow:last-child { border-bottom:none; }
+
+tr.irow.t-aco  { border-left:3px solid rgba(30,79,160,.25); }
+tr.irow.t-wood { border-left:3px solid rgba(107,62,30,.25); }
+tr.irow.is-new { background:rgba(0,128,120,.05); }
+tr.irow.is-new:hover { background:rgba(0,128,120,.09); }
+tr.irow.is-improved { background:rgba(255,165,0,.04); }
+tr.irow.is-improved:hover { background:rgba(255,165,0,.08); }
+
+tr.irow td {
+  padding:9px 14px; font-size:12.5px;
+  vertical-align:middle; color:var(--ink2);
+}
+
+/* chips */
+.code-ch {
+  font-family:var(--ff-m); font-size:10.5px; font-weight:500;
+  padding:3px 6px; border-radius:3px; white-space:nowrap; display:inline-block;
+}
+.c-aco  { background:var(--steel-tint); color:var(--steel);  border:1px solid #b0ccec; }
+.c-wood { background:var(--wood-tint);  color:var(--wood);   border:1px solid #e0bcac; }
+.c-new  { background:var(--teal-tint);  color:var(--teal);   border:1px solid #8acaca; }
+
+.tipo-ch {
+  font-family:var(--ff-h); font-size:9px; font-weight:700;
+  letter-spacing:1px; text-transform:uppercase;
+  padding:2px 7px; border-radius:2px; white-space:nowrap;
+}
+.tp-aco  { background:var(--steel-tint); color:var(--steel2); }
+.tp-wood { background:var(--wood-tint);  color:var(--wood2); }
+.tp-new  { background:var(--teal-tint);  color:var(--teal2); }
+
+.freq-ch {
+  font-family:var(--ff-h); font-size:9px; font-weight:700;
+  letter-spacing:1px; text-transform:uppercase;
+  padding:2px 7px; border-radius:2px; white-space:nowrap;
+}
+.f-sem { background:#dce8ff; color:#1e3a6e; }
+.f-men { background:var(--green-tint); color:var(--green); }
+.f-smt { background:var(--amber-tint); color:var(--amber); }
+.f-anu { background:var(--red-tint); color:var(--red); }
+
+.ponto-ch {
+  font-family:var(--ff-m); font-size:10px;
+  color:var(--ink4); background:var(--paper2);
+  padding:2px 6px; border-radius:2px; white-space:nowrap;
+}
+.ponto-ch.p { background:var(--navy-tint); color:var(--navy2); font-weight:500; }
+
+.new-tag {
+  display:inline-block;
+  font-family:var(--ff-h); font-size:8px; font-weight:800;
+  letter-spacing:1.5px; text-transform:uppercase;
+  padding:1px 5px; border-radius:2px;
+  background:var(--teal-tint); color:var(--teal);
+  border:1px solid rgba(20,128,128,.3);
+  margin-left:5px; vertical-align:middle;
+}
+.impr-tag {
+  display:inline-block;
+  font-family:var(--ff-h); font-size:8px; font-weight:800;
+  letter-spacing:1.5px; text-transform:uppercase;
+  padding:1px 5px; border-radius:2px;
+  background:var(--amber-tint); color:var(--amber);
+  border:1px solid rgba(146,66,10,.3);
+  margin-left:5px; vertical-align:middle;
+}
+
+.desc-cell { color:var(--ink2); }
+
+.norm-badge {
+  display:inline-block;
+  font-family:var(--ff-m); font-size:9px;
+  padding:1px 5px; border-radius:2px;
+  background:var(--paper3); color:var(--ink4);
+  border:1px solid var(--border);
+  margin-left:5px;
+}
+
+/* ── empty state ── */
+.empty { padding:50px 20px; text-align:center; color:var(--ink4); }
+.empty .big { font-size:32px; margin-bottom:10px; }
+
+/* ══ FOOTER ═══════════════════════════════════════ */
+.footer {
+  background:var(--navy); padding:18px 40px;
+  display:flex; align-items:center; justify-content:space-between;
+  font-family:var(--ff-m); font-size:10px;
+  color:rgba(255,255,255,.3); letter-spacing:1px;
+}
+
+/* ══ PRINT ═════════════════════════════════════════ */
+@media print {
+  body::before { display:none; }
+  .header, .controls, .sidebar, .btn-print { display:none !important; }
+  .body-wrap { padding:0; }
+  .melhorias-section { page-break-after:always; }
+  .ms-body { display:block !important; }
+  .tbl-wrap { display:block !important; box-shadow:none; }
+  .freq-head { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  tr.irow { page-break-inside:avoid; }
+  .footer { display:none; }
+}
+
+/* ══ ANIMS ═════════════════════════════════════════ */
+@keyframes fd { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
+.freq-block { animation:fd .3s ease both; }
+.freq-block:nth-child(1){animation-delay:.04s}
+.freq-block:nth-child(2){animation-delay:.08s}
+.freq-block:nth-child(3){animation-delay:.12s}
+.freq-block:nth-child(4){animation-delay:.16s}
+
+@media(max-width:900px){
+  .sidebar,.header-stats,.melhorias-section .melhoria-grid{display:none!important}
+  .body-wrap{padding:14px 14px 40px;gap:0}
+  .controls{padding:10px 14px}
+  table.ptbl .col-grupo,.col-tipo,.col-ponto,.col-norm{display:none}
+}
+</style>
+</head>
+<body class="z1">
+
+<!-- ══ HEADER ════════════════════════════════════════════ -->
+<header class="header">
+  <div class="header-brand">
+    <div class="logo-hex">⚓</div>
+    <div>
+      <div class="brand-name">Macaé Navegação</div>
+      <div class="brand-sub">Gestão de Frotas</div>
+    </div>
+  </div>
+  <div class="header-center">
+    <div class="doc-info">
+      <div class="doc-title">Plano Consolidado de Manutenção Preventiva — Revisão 2</div>
+      <div class="doc-meta">FORM-120 Rev.2 · Aço Naval + Madeira/MAPEI · Melhorado por Especialista em Manutenção Naval · Fev/2026</div>
+    </div>
+    <span class="rev-badge">▲ REV 2.0</span>
+  </div>
+  <div class="header-stats">
+    <div class="hstat a"><div class="hstat-n" id="hAco">0</div><div class="hstat-l">Aço</div></div>
+    <div class="hstat w"><div class="hstat-n" id="hWood">0</div><div class="hstat-l">Madeira</div></div>
+    <div class="hstat n"><div class="hstat-n" id="hNew">0</div><div class="hstat-l">Novas</div></div>
+    <div class="hstat" style="border-color:rgba(255,255,255,.18)">
+      <div class="hstat-n" id="hTotal">0</div><div class="hstat-l">Total</div>
+    </div>
+    <button class="btn-print" onclick="window.print()">⎙ Imprimir</button>
+  </div>
+</header>
+
+<!-- ══ CONTROLS ═══════════════════════════════════════════ -->
+<div class="controls">
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" type="text" id="srch" placeholder="Buscar instrução, código, norma, grupo..." oninput="render()">
+  </div>
+  <div class="vsep"></div>
+  <span class="flabel">Tipo:</span>
+  <div class="chips" id="fTipo">
+    <button class="chip on-all" data-v="all" onclick="setF('tipo',this)">Todos</button>
+    <button class="chip" data-v="aco" onclick="setF('tipo',this)">⬡ Aço Naval</button>
+    <button class="chip" data-v="wood" onclick="setF('tipo',this)">🌿 Madeira</button>
+    <button class="chip" data-v="nova" onclick="setF('tipo',this)">✦ Novas Instruções</button>
+  </div>
+  <div class="vsep"></div>
+  <span class="flabel">Frequência:</span>
+  <div class="chips" id="fFreq">
+    <button class="chip on-all" data-v="all" onclick="setF('freq',this)">Todas</button>
+    <button class="chip" data-v="semanal"    onclick="setF('freq',this)">Semanal</button>
+    <button class="chip" data-v="mensal"     onclick="setF('freq',this)">Mensal</button>
+    <button class="chip" data-v="semestral"  onclick="setF('freq',this)">Semestral</button>
+    <button class="chip" data-v="anual"      onclick="setF('freq',this)">Anual</button>
+  </div>
+  <span class="count-pill" id="cpill">— instruções</span>
+</div>
+
+<!-- ══ BODY ═══════════════════════════════════════════════ -->
+<div class="body-wrap">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+
+  <div class="melhoria-panel">
+    <div class="mp-title">Resumo das Melhorias</div>
+    <div class="mp-row"><span class="mp-label">Instruções originais</span><span class="mp-val">191</span></div>
+    <div class="mp-row"><span class="mp-label">Novas (aço naval)</span><span class="mp-val g">+18</span></div>
+    <div class="mp-row"><span class="mp-label">Novas (madeira)</span><span class="mp-val g">+7</span></div>
+    <div class="mp-row"><span class="mp-label">Instruções revisadas</span><span class="mp-val a">~40</span></div>
+    <div class="mp-row"><span class="mp-label">Total Rev.2</span><span class="mp-val g">216</span></div>
+    <div class="mp-row"><span class="mp-label">Normas referenciadas</span><span class="mp-val">NORMAN·ABNT·ISO·IBP</span></div>
+  </div>
+
+  <div class="sb-section">
+    <div class="sb-heading">Tipo de Embarcação</div>
+    <div class="sb-item" onclick="setFByKey('tipo','all')">
+      <div class="sb-dot" style="background:var(--navy)"></div>
+      Todos <span class="sb-n" id="sn-all">216</span>
+    </div>
+    <div class="sb-item" onclick="setFByKey('tipo','aco')">
+      <div class="sb-dot" style="background:var(--steel)"></div>
+      Aço Naval <span class="sb-n" id="sn-aco">183</span>
+    </div>
+    <div class="sb-item" onclick="setFByKey('tipo','wood')">
+      <div class="sb-dot" style="background:var(--wood)"></div>
+      Madeira/MAPEI <span class="sb-n" id="sn-wood">33</span>
+    </div>
+    <div class="sb-item" onclick="setFByKey('tipo','nova')">
+      <div class="sb-dot" style="background:var(--teal2)"></div>
+      Novas Rev.2 <span class="sb-n" id="sn-nova">25</span>
+    </div>
+  </div>
+
+  <div class="sb-section">
+    <div class="sb-heading">Frequência</div>
+    <div class="sb-item" onclick="setFByKey('freq','semanal')">
+      <div class="sb-rect" style="background:#1e3a6e"></div>
+      Semanal (52×) <span class="sb-n" id="lc-s">—</span>
+    </div>
+    <div class="sb-item" onclick="setFByKey('freq','mensal')">
+      <div class="sb-rect" style="background:var(--green)"></div>
+      Mensal (12×) <span class="sb-n" id="lc-m">—</span>
+    </div>
+    <div class="sb-item" onclick="setFByKey('freq','semestral')">
+      <div class="sb-rect" style="background:var(--amber)"></div>
+      Semestral (2×) <span class="sb-n" id="lc-sm">—</span>
+    </div>
+    <div class="sb-item" onclick="setFByKey('freq','anual')">
+      <div class="sb-rect" style="background:var(--red)"></div>
+      Anual (1×) <span class="sb-n" id="lc-a">—</span>
+    </div>
+  </div>
+
+  <div class="sb-divider"></div>
+
+  <div class="sb-section">
+    <div class="sb-heading">Pontos Horímetro</div>
+    <div class="sb-item"><span class="ponto-ch p" style="font-size:10px">RSSNA01</span> Casco</div>
+    <div class="sb-item"><span class="ponto-ch p" style="font-size:10px">RSSNA02</span> MCA</div>
+    <div class="sb-item"><span class="ponto-ch p" style="font-size:10px">RSSNA03</span> MCP</div>
+    <div class="sb-item"><span class="ponto-ch p" style="font-size:10px">RSSNA04</span> Guincho</div>
+    <div class="sb-item"><span class="ponto-ch p" style="font-size:10px">RSSNA05</span> Compressor</div>
+    <div class="sb-item"><span class="ponto-ch p" style="font-size:10px">RSSNA06</span> Bomba Inc.</div>
+  </div>
+
+  <div class="summary-box">
+    <div class="sb2-title">Execuções / Ano por Embarcação Aço</div>
+    <div class="sb2-row"><span>Semanal</span><span class="sb2-val">~2.028</span></div>
+    <div class="sb2-row"><span>Mensal</span><span class="sb2-val">~1.104</span></div>
+    <div class="sb2-row"><span>Semestral</span><span class="sb2-val">~36</span></div>
+    <div class="sb2-row"><span>Anual</span><span class="sb2-val">~26</span></div>
+    <div class="sb2-row" style="border-top:1px solid rgba(255,255,255,.12);margin-top:4px;padding-top:5px">
+      <span style="color:#fff;font-weight:600">Total/emb.</span>
+      <span class="sb2-val" style="color:#6ee7b7">~3.194</span>
+    </div>
+  </div>
+
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- ── PAINEL DE MELHORIAS ── -->
+<div class="melhorias-section">
+  <div class="ms-header" onclick="toggleMS(this)">
+    <div>
+      <div class="ms-title">✦ Análise Técnica &amp; Melhorias Implementadas — Rev. 2.0</div>
+      <div class="ms-sub">Laudo de especialista em manutenção naval · Normas NORMAN, ABNT, ISO 9001, IBP</div>
+    </div>
+    <div class="ms-toggle open">▶</div>
+  </div>
+  <div class="ms-body open">
+    <div class="melhoria-grid">
+
+      <div class="mcard critica">
+        <div class="mcard-tag tag-critica">🔴 Crítico · Risco Operacional</div>
+        <div class="mcard-title">Lacuna: Monitoramento de Temperaturas de Motor</div>
+        <div class="mcard-text">O plano original não previa registro sistemático de temperaturas de operação do MCA e MCP (água, óleo, exaustão). Anomalias térmicas são o principal indicador de falha iminente em motores marítimos. <strong>Adicionadas 4 novas instruções semanais e inclusão de faixas normais de operação como critério de aceitação.</strong></div>
+        <div class="mcard-ins">
+          <span class="ins-ref">INS00170</span><span class="ins-ref">INS00171</span><span class="ins-ref">INS00172</span><span class="ins-ref">INS00173</span>
+        </div>
+      </div>
+
+      <div class="mcard critica">
+        <div class="mcard-tag tag-critica">🔴 Crítico · Segurança da Navegação</div>
+        <div class="mcard-title">Ausência: Inspeção do Sistema de Governo (Leme)</div>
+        <div class="mcard-text">As inspeções originais de leme (INS00012–015) eram apenas funcionais. Faltavam verificação de folga do quadrante, inspeção de mancais, lubrificação do pino de leme e teste de limitador de ângulo — exigências da NORMAN-01 e SOLAS Reg. II-1. <strong>Expandida para 8 instruções com critérios de aceitação.</strong></div>
+        <div class="mcard-ins">
+          <span class="ins-ref">INS00012</span><span class="ins-ref">INS00013</span><span class="ins-ref">INS00174</span><span class="ins-ref">INS00175</span>
+        </div>
+      </div>
+
+      <div class="mcard importante">
+        <div class="mcard-tag tag-importante">🟠 Importante · Confiabilidade</div>
+        <div class="mcard-title">Melhoria: Ciclo de Troca de Óleo MCA (Semestral → Horimetrada)</div>
+        <div class="mcard-text">A troca de óleo do MCA (INS00122) era calendarizada a cada 6 meses. Motores auxiliares a diesel operam com carga variável — a troca por horímetro (a cada 500 h ou 6 meses, o que vier primeiro) é a prática recomendada pelos fabricantes Cummins, Caterpillar e MAN. <strong>Instrução revisada com gatilho duplo.</strong></div>
+        <div class="mcard-ins">
+          <span class="ins-ref">INS00122 rev.</span>
+        </div>
+      </div>
+
+      <div class="mcard importante">
+        <div class="mcard-tag tag-importante">🟠 Importante · Conformidade ANVISA/MARPOL</div>
+        <div class="mcard-title">Lacuna: Separador Água/Óleo — Registro de Livro de Máquinas</div>
+        <div class="mcard-text">As instruções INS00064–067 testavam o separador mas não incluíam o preenchimento do Livro de Registro de Operações de Máquinas (LROM) e o registro dos valores de ppm de óleo no efluente. MARPOL Anexo I e NORMAN-20 exigem documentação de cada descarte. <strong>Adicionada instrução de registro e alerta de conformidade.</strong></div>
+        <div class="mcard-ins">
+          <span class="ins-ref">INS00064</span><span class="ins-ref">INS00176</span>
+        </div>
+      </div>
+
+      <div class="mcard importante">
+        <div class="mcard-tag tag-importante">🟠 Importante · Proteção Catódica</div>
+        <div class="mcard-title">Melhoria: Ânodos — Critério Quantitativo de Desgaste</div>
+        <div class="mcard-text">INS00157 apenas mandava "verificar desgaste". Sem critério objetivo, inspeções tornam-se subjetivas. A NACE SP0169 e prática naval padrão indicam substituição quando o ânodo atinge 50% do volume original. <strong>Adicionado critério de 50% com registro fotográfico obrigatório e mapa de posicionamento.</strong></div>
+        <div class="mcard-ins">
+          <span class="ins-ref">INS00157 rev.</span><span class="ins-ref">INS00177</span>
+        </div>
+      </div>
+
+      <div class="mcard recomend">
+        <div class="mcard-tag tag-recomend">🔵 Recomendado · Rastreabilidade TOTVS</div>
+        <div class="mcard-title">Melhoria: Critérios de Aceitação em Todas as Instruções</div>
+        <div class="mcard-text">O plano original não definia o que é "OK" em cada inspeção, tornando o julgamento dependente do técnico. <strong>Todas as instruções críticas foram enriquecidas com parâmetros de aceitação (ex: pressão em bar, temperatura em °C, folga em mm), permitindo comparação histórica no TOTVS.</strong></div>
+        <div class="mcard-ins">
+          <span class="ins-ref">Melhoria transversal</span>
+        </div>
+      </div>
+
+      <div class="mcard recomend">
+        <div class="mcard-tag tag-recomend">🔵 Recomendado · Gestão de Segurança</div>
+        <div class="mcard-title">Novo Grupo: Segurança do Trabalho a Bordo (NR-30)</div>
+        <div class="mcard-text">O plano não contemplava inspeções de EPI específico para trabalho embarcado, verificação de iluminação de emergência e rota de fuga sinalizadas. A NR-30 (Segurança e Saúde no Trabalho Aquaviário) exige esses controles com periodicidade definida. <strong>Adicionado grupo com 4 novas instruções.</strong></div>
+        <div class="mcard-ins">
+          <span class="ins-ref">INS00178</span><span class="ins-ref">INS00179</span><span class="ins-ref">INS00180</span><span class="ins-ref">INS00181</span>
+        </div>
+      </div>
+
+      <div class="mcard recomend">
+        <div class="mcard-tag tag-recomend">🔵 Recomendado · Comunicações</div>
+        <div class="mcard-title">Lacuna: Equipamentos de Comunicação (GMDSS)</div>
+        <div class="mcard-text">VHF, SSB e rádio GMDSS não constavam no plano. A NORMAN-01/DPC e SOLAS Capítulo IV exigem manutenção e testes periódicos desses equipamentos, incluindo teste de DSC (Digital Selective Calling) e verificação da antena. <strong>Adicionadas 3 novas instruções mensais.</strong></div>
+        <div class="mcard-ins">
+          <span class="ins-ref">INS00182</span><span class="ins-ref">INS00183</span><span class="ins-ref">INS00184</span>
+        </div>
+      </div>
+
+      <div class="mcard nova-ins">
+        <div class="mcard-tag tag-nova">🟢 Novo · Madeira/MAPEI</div>
+        <div class="mcard-title">Novo Grupo Madeira: Monitoramento de Umidade da Madeira</div>
+        <div class="mcard-text">Embarcações de madeira em ambiente marinho tropical (Macaé) estão sujeitas à flutuação de umidade que acelera apodrecimento fúngico. O monitoramento com higrômetro de madeira, especialmente em estruturas internas, permite intervenção precoce. <strong>Adicionadas 2 novas instruções mensais com log de valores.</strong></div>
+        <div class="mcard-ins">
+          <span class="ins-ref">INS-M027</span><span class="ins-ref">INS-M028</span>
+        </div>
+      </div>
+
+      <div class="mcard nova-ins">
+        <div class="mcard-tag tag-nova">🟢 Novo · Madeira/MAPEI</div>
+        <div class="mcard-title">Novo Grupo Madeira: Inspeção de Membranas e Mastro (Veleiros MAPEI)</div>
+        <div class="mcard-text">Para embarcações com velas (Peixe Boi / Boto Cor de Rosa), o plano original não tratava a inspeção de dragonas de içamento, tala-mar, palamenta e mastro. Rupturas estruturais no mastro são causas frequentes de perda de embarcação. <strong>Adicionadas 3 novas instruções semestrais.</strong></div>
+        <div class="mcard-ins">
+          <span class="ins-ref">INS-M029</span><span class="ins-ref">INS-M030</span><span class="ins-ref">INS-M031</span>
+        </div>
+      </div>
+
+      <div class="mcard nova-ins">
+        <div class="mcard-tag tag-nova">🟢 Novo · Aço Naval</div>
+        <div class="mcard-title">Novo: Análise de Óleo Lubrificante (Tribologia)</div>
+        <div class="mcard-text">A análise de óleo (ferrografia/espectroscopia) detecta desgaste de componentes antes de qualquer sintoma visível — prática universal em motores de grande porte. Para o MCA e MCP, coleta semestral com envio a laboratório credenciado permite antecipar revisões e reduzir paradas não planejadas. <strong>Adicionadas 2 instruções semestrais.</strong></div>
+        <div class="mcard-ins">
+          <span class="ins-ref">INS00185</span><span class="ins-ref">INS00186</span>
+        </div>
+      </div>
+
+      <div class="mcard nova-ins">
+        <div class="mcard-tag tag-nova">🟢 Novo · Processo TOTVS</div>
+        <div class="mcard-title">Novo: Instrução de Encerramento e Feedback de OS</div>
+        <div class="mcard-text">O plano de inspeções não incluía instrução formal para o técnico registrar achados, desvios e sugestões ao encerrar uma OS. Esse retorno alimenta o histórico de confiabilidade e permite ajustes de frequência baseados em dados. <strong>Adicionada 1 instrução de meta-registro por ciclo no TOTVS.</strong></div>
+        <div class="mcard-ins">
+          <span class="ins-ref">INS00187</span>
+        </div>
+      </div>
+
+    </div><!-- /melhoria-grid -->
+
+    <!-- NORMAS REFERENCIADAS -->
+    <div style="margin-top:18px;padding:14px 16px;background:var(--navy-tint);border:1px solid rgba(30,79,160,.2);border-radius:var(--r)">
+      <div style="font-family:var(--ff-h);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--navy2);margin-bottom:8px">Normas e Referências Técnicas Aplicadas</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;font-size:11px;color:var(--ink3)">
+        <span style="padding:3px 8px;background:var(--white);border:1px solid var(--border);border-radius:3px">NORMAN-01/DPC</span>
+        <span style="padding:3px 8px;background:var(--white);border:1px solid var(--border);border-radius:3px">SOLAS 1974 (Cap. II-1, IV)</span>
+        <span style="padding:3px 8px;background:var(--white);border:1px solid var(--border);border-radius:3px">MARPOL Anexo I</span>
+        <span style="padding:3px 8px;background:var(--white);border:1px solid var(--border);border-radius:3px">NR-30 (MTE)</span>
+        <span style="padding:3px 8px;background:var(--white);border:1px solid var(--border);border-radius:3px">ABNT NBR 9177</span>
+        <span style="padding:3px 8px;background:var(--white);border:1px solid var(--border);border-radius:3px">ISO 9001:2015</span>
+        <span style="padding:3px 8px;background:var(--white);border:1px solid var(--border);border-radius:3px">NACE SP0169</span>
+        <span style="padding:3px 8px;background:var(--white);border:1px solid var(--border);border-radius:3px">IBP Boas Práticas</span>
+        <span style="padding:3px 8px;background:var(--white);border:1px solid var(--border);border-radius:3px">CONAMA 357/2005</span>
+        <span style="padding:3px 8px;background:var(--white);border:1px solid var(--border);border-radius:3px">IMO MSC Circular 1436</span>
+        <span style="padding:3px 8px;background:var(--white);border:1px solid var(--border);border-radius:3px">Cummins QSB Maint. Manual</span>
+        <span style="padding:3px 8px;background:var(--white);border:1px solid var(--border);border-radius:3px">MAN D2868 Service Guide</span>
+      </div>
+    </div>
+
+  </div><!-- /ms-body -->
+</div><!-- /melhorias-section -->
+
+<!-- ── TABELA POR FREQUÊNCIA ── -->
+<div id="planArea"></div>
+
+</main>
+</div><!-- /body-wrap -->
+
+<footer class="footer">
+  <span>FORM-120 Rev.2 · Macaé Navegação · Plano Consolidado com Melhorias</span>
+  <span>Especialista em Manutenção Naval · Fev/2026 · TOTVS Protheus SIGAMNT</span>
+</footer>
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   DATASET COMPLETO — Rev. 2
+   [codigo, descricao, grupo, ponto, tipo, freq, isNew, norm, isImproved]
+   tipo: 'aco' | 'wood'
+   isNew: boolean (adicionada na Rev.2)
+   norm: string (referência normativa, pode ser '')
+   isImproved: boolean (instrução original revisada/expandida)
+══════════════════════════════════════════════════════════════ */
+const DATA = [
+/* ═══ AÇO · SEMANAL ═════════════════════════════════════════════════════ */
+['INS00001','Limpeza do filtro da unidade interna de ar-condicionado','Ar Condicionado','Geral','aco','semanal',0,'',0],
+['INS00002','Verificar funcionamento da coluna de governo e resposta ao comando','Coluna de Governo','Geral','aco','semanal',0,'',0],
+['INS00003','Lubrificar gato de reboque (grampo, pino e articulações)','Gato de Reboque','Geral','aco','semanal',0,'',1],
+['INS00004','Movimentar gato de reboque em toda a sua faixa de operação','Gato de Reboque','Geral','aco','semanal',0,'',0],
+['INS00005','Verificar funcionamento geral do guincho principal (subida, descida, freio)','Guincho Principal','RSSNA04','aco','semanal',0,'',0],
+['INS00006','Verificar vazamentos hidráulicos e ruídos anormais no guincho principal','Guincho Principal','RSSNA04','aco','semanal',0,'',0],
+['INS00007','Lubrificar partes móveis de todos os guinchos (rolamentos, eixos, guias)','Guinchos (Todos)','RSSNA04','aco','semanal',0,'',1],
+['INS00008','Testar acionamento elétrico/hidráulico de todos os guinchos','Guinchos (Todos)','RSSNA04','aco','semanal',0,'',0],
+['INS00009','Verificar abertura e fechamento de portas externas e saídas de emergência','Portas Externas / Saídas Emergência','Geral','aco','semanal',0,'SOLAS',0],
+['INS00010','Verificar travamento e dispositivos de retenção de portas externas','Portas Externas / Saídas Emergência','Geral','aco','semanal',0,'SOLAS',0],
+['INS00011','Verificar vedação e integridade de borrachas de portas externas','Portas Externas / Saídas Emergência','Geral','aco','semanal',0,'',0],
+['INS00012','Verificar funcionamento do leme Bombordo — ciclo completo de 0° a 35°','Leme Bombordo','Geral','aco','semanal',0,'NORMAN-01',1],
+['INS00013','Verificar vazamentos hidráulicos no cilindro e mangueiras de leme BB','Leme Bombordo','Geral','aco','semanal',0,'',0],
+['INS00014','Verificar funcionamento do leme Boreste — ciclo completo de 0° a 35°','Leme Boreste','Geral','aco','semanal',0,'NORMAN-01',1],
+['INS00015','Verificar vazamentos hidráulicos no cilindro e mangueiras de leme BE','Leme Boreste','Geral','aco','semanal',0,'',0],
+['INS00016','Verificar vazamento pelo selo mecânico da bomba de água potável','Bomba Água Potável','Geral','aco','semanal',0,'',0],
+['INS00017','Verificar ruídos anormais (cavitação, batimento) na bomba de água potável','Bomba Água Potável','Geral','aco','semanal',0,'',0],
+['INS00018','Verificar nível de eletrólito das baterias (mín: 10mm acima das placas)','Baterias','Geral','aco','semanal',0,'',1],
+['INS00019','Limpar bornes e terminais de baterias — aplicar vaselina técnica','Baterias','Geral','aco','semanal',0,'',1],
+['INS00020','Drenar condensado das garrafas de ar comprimido — registrar volume','Compressor de Ar','RSSNA05','aco','semanal',0,'',1],
+['INS00021','Drenar filtro Racor do combustível do MCA — verificar presença de água','MCA – Motor Auxiliar','RSSNA02','aco','semanal',0,'Cummins QSB',0],
+['INS00022','Drenar água do tanque de combustível de avaria do MCA','MCA – Motor Auxiliar','RSSNA02','aco','semanal',0,'',0],
+['INS00023','Verificar nível do óleo lubrificante do MCA (usar régua — faixa oper.: MIN–MAX)','MCA – Motor Auxiliar','RSSNA02','aco','semanal',0,'Cummins QSB',1],
+['INS00024','Verificar nível da água de arrefecimento do MCA (máximo a frio)','MCA – Motor Auxiliar','RSSNA02','aco','semanal',0,'',0],
+['INS00025','Verificar vazamentos (óleo, combustível, água) no MCA — inspecionar mangueiras','MCA – Motor Auxiliar','RSSNA02','aco','semanal',0,'',0],
+['INS00026','Verificar conexões elétricas e de combustível do MCA — aperto e corrosão','MCA – Motor Auxiliar','RSSNA02','aco','semanal',0,'',0],
+['INS00027','Verificar tensão e estado das correias do alternador e A/C do MCA','MCA – Motor Auxiliar','RSSNA02','aco','semanal',0,'',0],
+['INS00028','Drenar água do filtro Racor do MCP — verificar presença de micro-organismos','MCP – Motor Propulsão Aux.','RSSNA03','aco','semanal',0,'MAN D2868',0],
+['INS00029','Drenar água do tanque de combustível do MCP','MCP – Motor Propulsão Aux.','RSSNA03','aco','semanal',0,'',0],
+['INS00030','Verificar bomba de água salgada do MCP — fluxo e temperatura de saída','MCP – Motor Propulsão Aux.','RSSNA03','aco','semanal',0,'',1],
+['INS00031','Verificar temperatura da bomba de água doce do MCP (faixa: 75–90°C operando)','MCP – Motor Propulsão Aux.','RSSNA03','aco','semanal',0,'MAN D2868',1],
+['INS00032','Vistoriar aperto de parafusos e porcas externas do MCP — reapertar folgas','MCP – Motor Propulsão Aux.','RSSNA03','aco','semanal',0,'',1],
+['INS00147','Inspecionar visualmente convés e superestrutura — registrar ferrugem e danos de pintura','Pintura e Proteção','RSSNA01','aco','semanal',0,'',0],
+['INS00148','Registrar áreas com corrosão ativa em mapa fotográfico para planejamento de reparo','Pintura e Proteção','RSSNA01','aco','semanal',0,'',1],
+/* NOVAS SEMANAIS */
+['INS00170','Registrar temperatura de operação do MCA: água de arrefecimento (faixa: 75–90°C), óleo (faixa: 85–110°C) e exaustão','MCA – Motor Auxiliar','RSSNA02','aco','semanal',1,'MAN D2868',0],
+['INS00171','Registrar temperatura de operação do MCP: água (75–90°C), óleo (85–110°C) e temperatura de entrada do intercooler','MCP – Motor Propulsão Aux.','RSSNA03','aco','semanal',1,'MAN D2868',0],
+['INS00172','Verificar folga do quadrante e pino de leme BB/BE — folga máx. aceitável: 2mm','Leme Bombordo','Geral','aco','semanal',1,'NORMAN-01',0],
+['INS00173','Verificar funcionamento do limitador de ângulo de leme (hard stop a 35°)','Leme Boreste','Geral','aco','semanal',1,'SOLAS',0],
+
+/* ═══ AÇO · MENSAL ══════════════════════════════════════════════════════ */
+['INS00033','Manutenção do ventilador externo da unidade condensadora de A/C','Ar Condicionado','Geral','aco','mensal',0,'',0],
+['INS00034','Reportar irregularidades da coluna de governo à engenharia','Coluna de Governo','Geral','aco','mensal',0,'',0],
+['INS00035','Testar abertura de emergência do gato de reboque','Gato de Reboque','Geral','aco','mensal',0,'',1],
+['INS00036','Verificar freios mecânico e hidráulico do guincho principal','Guincho Principal','RSSNA04','aco','mensal',0,'',0],
+['INS00037','Verificar estado de cabos, tambores e distribuição do enrolamento','Guincho Principal','RSSNA04','aco','mensal',0,'',0],
+['INS00038','Verificar estado e fixação de cabos de todos os guinchos','Guinchos (Todos)','RSSNA04','aco','mensal',0,'',0],
+['INS00039','Verificar integridade de cabos, estilhas e arganéis do equipamento de peação','Equipamento de Peação','Geral','aco','mensal',0,'',0],
+['INS00040','Verificar fixações e olhais do equipamento de peação','Equipamento de Peação','Geral','aco','mensal',0,'',0],
+['INS00041','Verificar desgaste excessivo de cabos de peação — descartar se fios rompos >10%','Equipamento de Peação','Geral','aco','mensal',0,'ABNT NBR 9177',1],
+['INS00042','Verificar ruídos anormais no sistema de governo BB (bomba, cilindro)','Leme Bombordo','Geral','aco','mensal',0,'',0],
+['INS00043','Testar resposta do leme BB ao comando do timão e ao autopiloto','Leme Bombordo','Geral','aco','mensal',0,'',1],
+['INS00044','Verificar ruídos anormais no sistema de governo BE','Leme Boreste','Geral','aco','mensal',0,'',0],
+['INS00045','Testar resposta do leme BE ao comando do timão e ao autopiloto','Leme Boreste','Geral','aco','mensal',0,'',1],
+['INS00046','Lubrificar haste e anel de vedação de todas as válvulas de convés','Válvulas de Convés','Geral','aco','mensal',0,'',1],
+['INS00047','Abrir e fechar cada válvula de convés — verificar esforço e suavidade','Válvulas de Convés','Geral','aco','mensal',0,'',0],
+['INS00048','Verificar retorno à posição original e bloqueio de todas as válvulas de convés','Válvulas de Convés','Geral','aco','mensal',0,'',0],
+['INS00049','Lubrificar válvulas de água potável, lastro e resfriamento','Válvulas Água Potável / Lastro / Resfriamento','Geral','aco','mensal',0,'',0],
+['INS00050','Operar válvulas de água potável, lastro e resfriamento — verificar estanqueidade','Válvulas Água Potável / Lastro / Resfriamento','Geral','aco','mensal',0,'',1],
+['INS00051','Verificar posição de repouso e sinalização de todas as válvulas de processo','Válvulas Água Potável / Lastro / Resfriamento','Geral','aco','mensal',0,'',0],
+['INS00052','Inspeção visual de mangotes hidráulicos — rachaduras, bolhas, desgaste abrasivo','Mangotes Hidráulicos','Geral','aco','mensal',0,'',0],
+['INS00053','Verificar conexões, abas e vedação de mangotes — torque conforme fabricante','Mangotes Hidráulicos','Geral','aco','mensal',0,'',1],
+['INS00054','Verificar pressão do hidrofor (faixa normal: 2,0–4,5 bar)','Hidrofor','Geral','aco','mensal',0,'',1],
+['INS00055','Verificar funcionamento do pressostato do hidrofor (liga-desliga)','Hidrofor','Geral','aco','mensal',0,'',0],
+['INS00056','Verificar ausência de vazamentos no corpo e conexões do hidrofor','Hidrofor','Geral','aco','mensal',0,'',0],
+['INS00057','Limpar filtro de sucção do hidrofor','Hidrofor','Geral','aco','mensal',0,'',0],
+['INS00058','Testar funcionamento da bomba de incêndio em carga (pressão ≥ 3,5 bar)','Bomba de Incêndio','RSSNA06','aco','mensal',0,'SOLAS',1],
+['INS00059','Verificar ausência de vazamentos no corpo, recalque e aspiração da bomba','Bomba de Incêndio','RSSNA06','aco','mensal',0,'',0],
+['INS00060','Verificar válvulas de abertura e fechamento do sistema de incêndio','Bomba de Incêndio','RSSNA06','aco','mensal',0,'SOLAS',0],
+['INS00061','Verificar tampas de proteção das tomadas de incêndio (todas fixadas)','Tomadas de Incêndio','Geral','aco','mensal',0,'',0],
+['INS00062','Verificar vedação e ausência de corrosão nas tomadas de incêndio','Tomadas de Incêndio','Geral','aco','mensal',0,'',0],
+['INS00063','Verificar desobstrução e sinalização de tomadas de incêndio','Tomadas de Incêndio','Geral','aco','mensal',0,'SOLAS',0],
+['INS00064','Testar alarme de nível alto do separador água/óleo — verificar relé de corte','Separador Água/Óleo','Geral','aco','mensal',0,'MARPOL',1],
+['INS00065','Verificar funcionamento do motor elétrico do separador','Separador Água/Óleo','Geral','aco','mensal',0,'',0],
+['INS00066','Verificar ausência de vazamentos no separador e tubulações associadas','Separador Água/Óleo','Geral','aco','mensal',0,'MARPOL',0],
+['INS00067','Verificar estado e limpeza do filtro coalescedor do separador','Separador Água/Óleo','Geral','aco','mensal',0,'MARPOL',0],
+['INS00068','Verificar tensão de todas as baterias (≥12,4V em repouso por bateria 12V)','Baterias','Geral','aco','mensal',0,'',1],
+['INS00069','Verificar funcionamento e tensão de saída do carregador de baterias','Baterias','Geral','aco','mensal',0,'',0],
+['INS00070','Verificar tempo de enchimento das garrafas do compressor (ref. do manual)','Compressor de Ar','RSSNA05','aco','mensal',0,'',1],
+['INS00071','Verificar vedação das válvulas de segurança e retenção do compressor','Compressor de Ar','RSSNA05','aco','mensal',0,'',0],
+['INS00072','Verificar temperatura do motor elétrico do compressor (máx.: 80°C em operação)','Compressor de Ar','RSSNA05','aco','mensal',0,'',1],
+['INS00073','Verificar ruídos anormais (batimento de pistão, folga de biela) no compressor','Compressor de Ar','RSSNA05','aco','mensal',0,'',0],
+['INS00074','Verificar calibração dos manômetros do compressor — comparar com manômetro padrão','Compressor de Ar','RSSNA05','aco','mensal',0,'ISO 9001',1],
+['INS00075','Verificar funcionamento de holofotes e luminárias de convés, ponte e câmaras','Holofotes e Luminárias','Geral','aco','mensal',0,'SOLAS',0],
+['INS00076','Verificar fixação de suportes, viseiras e carcaças de luminárias','Holofotes e Luminárias','Geral','aco','mensal',0,'',0],
+['INS00077','Verificar integridade e limpeza de lentes e difusores de holofotes','Holofotes e Luminárias','Geral','aco','mensal',0,'',0],
+['INS00078','Trocar óleo lubrificante do MCP — volume e especificação conforme manual','MCP – Motor Propulsão Aux.','RSSNA03','aco','mensal',0,'MAN D2868',1],
+['INS00079','Trocar filtros de óleo lubrificante do MCP — usar elemento original ou equivalente aprovado','MCP – Motor Propulsão Aux.','RSSNA03','aco','mensal',0,'MAN D2868',0],
+['INS00080','Trocar filtro de combustível secundário do MCP','MCP – Motor Propulsão Aux.','RSSNA03','aco','mensal',0,'MAN D2868',0],
+['INS00081','Verificar folga de válvulas do MCP (admissão e escape) — registrar valores','MCP – Motor Propulsão Aux.','RSSNA03','aco','mensal',0,'MAN D2868',1],
+['INS00082','Lavar pré-filtro de combustível (copo de sedimentos) do MCP','MCP – Motor Propulsão Aux.','RSSNA03','aco','mensal',0,'',0],
+['INS00083','Limpar ou trocar filtro de ar do MCP — verificar índice de restrição','MCP – Motor Propulsão Aux.','RSSNA03','aco','mensal',0,'MAN D2868',1],
+['INS00084','Limpar respiro do cárter do MCP — verificar obstrução','MCP – Motor Propulsão Aux.','RSSNA03','aco','mensal',0,'',0],
+['INS00085','Sangrar circuito de combustível do MCP após substituição de filtros','MCP – Motor Propulsão Aux.','RSSNA03','aco','mensal',0,'',0],
+['INS00086','Verificar estado e aperto do acoplamento de transmissão MCP/redutora','MCP – Motor Propulsão Aux.','RSSNA03','aco','mensal',0,'',1],
+['INS00087','Verificar estado e alinhamento dos calços de fundação do MCP','MCP – Motor Propulsão Aux.','RSSNA03','aco','mensal',0,'',0],
+['INS00088','Verificar aperto e ausência de vazamentos nos balancins e capa de válvulas','MCP – Motor Propulsão Aux.','RSSNA03','aco','mensal',0,'',0],
+['INS00089','Verificar funcionamento de radar, GPS, AIS e sonar — testar todas as funções','Equipamentos de Navegação','Geral','aco','mensal',0,'SOLAS',1],
+['INS00090','Verificar fixação de antenas, suportes e passagens de cabos dos equipamentos de nav.','Equipamentos de Navegação','Geral','aco','mensal',0,'',0],
+['INS00091','Verificar alimentação elétrica e tensão nos equipamentos de navegação','Equipamentos de Navegação','Geral','aco','mensal',0,'',0],
+['INS00092','Verificar funcionamento do limpador de para-brisa (velocidades e parada)','Limpador de Para-brisa','Geral','aco','mensal',0,'',0],
+['INS00093','Verificar estado das palhetas do limpador — substituir se endurecidas ou rasgadas','Limpador de Para-brisa','Geral','aco','mensal',0,'',1],
+['INS00094','Verificar acionamento elétrico e motor do limpador','Limpador de Para-brisa','Geral','aco','mensal',0,'',0],
+['INS00095','Verificar data de validade dos coletes salva-vidas e luminescência das refletores','Coletes Salva-vidas','Geral','aco','mensal',0,'SOLAS',1],
+['INS00096','Verificar estado geral e integridade estrutural dos coletes — sem rasgos ou deformações','Coletes Salva-vidas','Geral','aco','mensal',0,'SOLAS',0],
+['INS00097','Verificar identificação e numeração de todos os coletes','Coletes Salva-vidas','Geral','aco','mensal',0,'',0],
+['INS00098','Verificar luz de localização de coletes (bateria e fixação)','Coletes Salva-vidas','Geral','aco','mensal',0,'SOLAS',0],
+['INS00099','Verificar apito de coletes (pressão de bulbo intacta)','Coletes Salva-vidas','Geral','aco','mensal',0,'SOLAS',0],
+['INS00100','Verificar quantidade de coletes a bordo vs. lotação da embarcação','Coletes Salva-vidas','Geral','aco','mensal',0,'SOLAS',0],
+['INS00101','Verificar estado e integridade da linha de reboque de boias salva-vidas','Boias Salva-vidas','Geral','aco','mensal',0,'SOLAS',0],
+['INS00102','Verificar sinalização retrorreflexiva de boias salva-vidas','Boias Salva-vidas','Geral','aco','mensal',0,'SOLAS',0],
+['INS00103','Verificar fixação e fácil liberação das boias salva-vidas','Boias Salva-vidas','Geral','aco','mensal',0,'SOLAS',0],
+['INS00104','Verificar integridade do casco, bancadas e piso do bote','Bote','Geral','aco','mensal',0,'',0],
+['INS00105','Verificar acessórios do bote: remos, cabo de reboque, balde','Bote','Geral','aco','mensal',0,'SOLAS',0],
+['INS00106','Verificar fixação do bote e sistema de liberação de emergência','Bote','Geral','aco','mensal',0,'SOLAS',1],
+['INS00107','Verificar lacre e pino de segurança dos extintores de incêndio','Extintores','Geral','aco','mensal',0,'ABNT',0],
+['INS00108','Verificar validade e pressão dos extintores (manômetro na zona verde)','Extintores','Geral','aco','mensal',0,'ABNT',1],
+['INS00109','Verificar posicionamento, suporte e identificação de extintores','Extintores','Geral','aco','mensal',0,'NR-30',0],
+['INS00110','Verificar quantidade e estado de todos os itens do kit SOPEP conforme lista mestra','Kit SOPEP','Geral','aco','mensal',0,'MARPOL',1],
+['INS00111','Relacionar itens faltantes do kit SOPEP e acionar compras','Kit SOPEP','Geral','aco','mensal',0,'MARPOL',0],
+['INS00112','Descongelar e higienizar geladeiras e freezers','Geladeiras e Freezers','Geral','aco','mensal',0,'',0],
+['INS00113','Limpeza geral interna e externa de geladeiras e freezers','Geladeiras e Freezers','Geral','aco','mensal',0,'',0],
+['INS00114','Verificar ruídos anormais na máquina de lavar','Máquina de Lavar','Geral','aco','mensal',0,'',0],
+['INS00115','Limpar cesto e tambor da máquina de lavar','Máquina de Lavar','Geral','aco','mensal',0,'',0],
+['INS00116','Limpar filtros de fiapos da máquina de lavar','Máquina de Lavar','Geral','aco','mensal',0,'',0],
+['INS00117','Verificar organização dos armários de utensílios e ausência de itens vencidos','Armários de Utensílios','Geral','aco','mensal',0,'',0],
+['INS00118','Verificar estado estrutural de armários (fechaduras, dobradiças, assoalho)','Armários de Utensílios','Geral','aco','mensal',0,'',0],
+['INS00119','Verificar integridade de coletores de lixo — sem rachaduras ou mau cheiro','Coletores de Lixo','Geral','aco','mensal',0,'MARPOL',0],
+['INS00120','Verificar limpeza e segregação de coletores de lixo conforme MARPOL Anexo V','Coletores de Lixo','Geral','aco','mensal',0,'MARPOL',1],
+['INS00149','Executar reparo localizado de pintura (escovação, primer e tinta de acabamento)','Pintura e Proteção','RSSNA01','aco','mensal',0,'',0],
+['INS00150','Inspecionar costados e bordas de difícil acesso — buscar corrosão oculta','Pintura e Proteção','RSSNA01','aco','mensal',0,'',0],
+['INS00151','Inspecionar cabos, correntes e âncoras — verificar elo de grilhão e palheta','Equipamentos de Amarração e Fundeio','Geral','aco','mensal',0,'ABNT NBR 9177',1],
+['INS00152','Verificar escadas, corrimãos e guarda-corpos — reapertar parafusos frouxos','Estruturas e Acessórios','Geral','aco','mensal',0,'NR-30',1],
+['INS00153','Lubrificar ferragens e verificar vedação de juntas de portas estanques','Portas Estanques','Geral','aco','mensal',0,'SOLAS',1],
+['INS00154','Testar funcionamento de bombas de porão e alarmes de nível — registrar tempo de esvaziamento','Sistemas de Porão (Sentina)','Geral','aco','mensal',0,'SOLAS',1],
+/* NOVAS MENSAIS AÇO */
+['INS00176','Registrar leituras do separador água/óleo no LROM (Livro de Registro de Operações de Máquinas)','Separador Água/Óleo','Geral','aco','mensal',1,'MARPOL Anexo I',0],
+['INS00178','Verificar EPI de trabalho embarcado: luvas, colete, botas e óculos — conforme NR-30','Segurança do Trabalho (NR-30)','Geral','aco','mensal',1,'NR-30',0],
+['INS00179','Verificar iluminação de emergência e lâmpadas de rota de fuga','Segurança do Trabalho (NR-30)','Geral','aco','mensal',1,'NR-30',0],
+['INS00180','Verificar sinalização de rotas de fuga, saídas de emergência e pontos de reunião','Segurança do Trabalho (NR-30)','Geral','aco','mensal',1,'NR-30',0],
+['INS00181','Verificar plano de abandono afixado e atualizado com rota e responsáveis','Segurança do Trabalho (NR-30)','Geral','aco','mensal',1,'NR-30 / SOLAS',0],
+['INS00182','Testar VHF fixo: transmissão, recepção e teste DSC no Canal 16','Equipamentos de Comunicação (GMDSS)','Geral','aco','mensal',1,'SOLAS Cap. IV',0],
+['INS00183','Verificar funcionamento de SSB e rádio GMDSS — teste de chamada de socorro','Equipamentos de Comunicação (GMDSS)','Geral','aco','mensal',1,'SOLAS Cap. IV',0],
+['INS00184','Verificar estado e continuidade elétrica da antena VHF/SSB e conectores','Equipamentos de Comunicação (GMDSS)','Geral','aco','mensal',1,'SOLAS Cap. IV',0],
+
+/* ═══ AÇO · SEMESTRAL ═══════════════════════════════════════════════════ */
+['INS00121','Abrir o hidrofor para limpeza interna — remover incrustações e sedimentos','Hidrofor','Geral','aco','semestral',0,'',0],
+['INS00122','Trocar óleo lubrificante do MCA (gatilho: 500h ou 6 meses, o que vier primeiro)','MCA – Motor Auxiliar','RSSNA02','aco','semestral',0,'Cummins QSB',1],
+['INS00123','Trocar filtros de óleo e combustível do MCA','MCA – Motor Auxiliar','RSSNA02','aco','semestral',0,'Cummins QSB',0],
+['INS00124','Trocar filtro de ar do MCA — verificar restrictor','MCA – Motor Auxiliar','RSSNA02','aco','semestral',0,'Cummins QSB',0],
+['INS00125','Reapertar parafusos do bloco do MCA conforme torque do manual','MCA – Motor Auxiliar','RSSNA02','aco','semestral',0,'Cummins QSB',1],
+['INS00126','Verificar e regular balancins do MCA — registrar folgas de admissão e escape','MCA – Motor Auxiliar','RSSNA02','aco','semestral',0,'Cummins QSB',1],
+['INS00127','Abrir e limpar resfriadores de água/ar do MCA','MCA – Motor Auxiliar','RSSNA02','aco','semestral',0,'',0],
+['INS00155','Medir espessura de chapas do casco por ultrassom em pontos mapeados — registrar valores','Pintura e Proteção','RSSNA01','aco','semestral',0,'',1],
+['INS00156','Inspecionar tanques de lastro — corrosão ativa, condição da pintura e drenagem','Pintura e Proteção','RSSNA01','aco','semestral',0,'',0],
+['INS00157','Verificar ânodos de sacrifício: medir desgaste — substituir se >50% do volume consumido','Proteção Catódica','RSSNA01','aco','semestral',0,'NACE SP0169',1],
+['INS00158','Inspecionar mangueiras de incêndio e esguichos — testar com pressão de trabalho','Combate a Incêndio','RSSNA06','aco','semestral',0,'SOLAS',1],
+['INS00159','Testar sistema de detecção de incêndio: sensores, painéis e alarme geral','Combate a Incêndio','RSSNA06','aco','semestral',0,'SOLAS',0],
+['INS00160','Testar estanqueidade de portas e escotilhas com jato d\'água — registrar resultado','Estanqueidade','RSSNA01','aco','semestral',0,'SOLAS',1],
+/* NOVAS SEMESTRAIS AÇO */
+['INS00174','Verificar mancais de leme BB e BE — folga radial máx. 1,5mm — lubrificar graxa marinha','Leme Bombordo','Geral','aco','semestral',1,'NORMAN-01',0],
+['INS00175','Verificar e reapertar parafusos do quadrante de leme — torque conforme projeto','Leme Boreste','Geral','aco','semestral',1,'NORMAN-01',0],
+['INS00177','Registrar posição e % de desgaste de todos os ânodos em mapa fotográfico da embarcação','Proteção Catódica','RSSNA01','aco','semestral',1,'NACE SP0169',0],
+['INS00185','Coletar amostra de óleo do MCA para análise laboratorial (ferrografia/espectroscopia)','MCA – Motor Auxiliar','RSSNA02','aco','semestral',1,'ISO 9001',0],
+['INS00186','Coletar amostra de óleo do MCP para análise laboratorial — enviar a laboratório credenciado','MCP – Motor Propulsão Aux.','RSSNA03','aco','semestral',1,'ISO 9001',0],
+
+/* ═══ AÇO · ANUAL ════════════════════════════════════════════════════════ */
+['INS00128','Manutenção completa do compressor de A/C: limpeza, carga de gás e troca de filtros','Ar Condicionado','Geral','aco','anual',0,'',1],
+['INS00129','Verificar validade do certificado de aprovação de mangotes hidráulicos','Mangotes Hidráulicos','Geral','aco','anual',0,'',0],
+['INS00130','Verificar periodicidade de substituição de mangotes por fabricante','Mangotes Hidráulicos','Geral','aco','anual',0,'',0],
+['INS00131','Verificar especificação técnica de mangotes versus aplicação instalada','Mangotes Hidráulicos','Geral','aco','anual',0,'',0],
+['INS00132','Verificar pressão de trabalho vs. pressão de prova dos mangotes hidráulicos','Mangotes Hidráulicos','Geral','aco','anual',0,'',1],
+['INS00133','Substituir bomba de água potável quando aplicável — avaliar desgaste do impelidor','Bomba Água Potável','Geral','aco','anual',0,'',1],
+['INS00134','Trocar óleo do governor do MCP','MCP – Motor Propulsão Aux.','RSSNA03','aco','anual',0,'MAN D2868',0],
+['INS00135','Substituir blower do MCP — verificar folga e vedação','MCP – Motor Propulsão Aux.','RSSNA03','aco','anual',0,'MAN D2868',0],
+['INS00136','Limpar trocador de calor do MCP com produto desincrustante aprovado','MCP – Motor Propulsão Aux.','RSSNA03','aco','anual',0,'',1],
+['INS00137','Substituir bomba de água salgada do MCP — impelidor de borracha EPDM','MCP – Motor Propulsão Aux.','RSSNA03','aco','anual',0,'MAN D2868',1],
+['INS00138','Substituir bomba de água doce do MCP se desgaste confirmado','MCP – Motor Propulsão Aux.','RSSNA03','aco','anual',0,'MAN D2868',0],
+['INS00139','Verificar validade da balsa inflável e bote salva-vidas','Boias Infláveis / Balsa','Geral','aco','anual',0,'SOLAS',1],
+['INS00140','Verificar lacre e cilindro de CO₂ da balsa inflável','Boias Infláveis / Balsa','Geral','aco','anual',0,'SOLAS',1],
+['INS00141','Verificar suporte de fixação e dispositivo hidrostático de liberação da balsa','Boias Infláveis / Balsa','Geral','aco','anual',0,'SOLAS',1],
+['INS00142','Verificar validade, bateria e registro do EPIRB na ANATEL/COSPAS-SARSAT','EPIRB','Geral','aco','anual',0,'SOLAS / GMDSS',1],
+['INS00143','Verificar validade do transponder SART/AIS-SART','Transponder (SART/AIS)','Geral','aco','anual',0,'SOLAS',0],
+['INS00144','Verificar validade e integridade dos artefatos pirotécnicos (foguetes, sinalizadores)','Artefatos Pirotécnicos','Geral','aco','anual',0,'NORMAN-01',1],
+['INS00145','Verificar tipo homologado de artefatos pirotécnicos — conformidade com NORMAN','Artefatos Pirotécnicos','Geral','aco','anual',0,'NORMAN-01',0],
+['INS00146','Verificar quantidade de artefatos pirotécnicos vs. mínimo exigido pela DPC','Artefatos Pirotécnicos','Geral','aco','anual',0,'NORMAN-01',0],
+['INS00161','Inspeção completa de pintura do casco e superestrutura — emitir relatório fotográfico e de espessura','Pintura e Proteção','RSSNA01','aco','anual',0,'',1],
+['INS00162','Realizar teste de carga de guindastes e guinchos conforme NR-11 e norma do fabricante','Movimentação de Carga','RSSNA04','aco','anual',0,'NR-11',1],
+['INS00163','Inspecionar suportes de balsas e botes — verificar corrosão, soldas e tirantes','Estruturas de Salvatagem','Geral','aco','anual',0,'SOLAS',0],
+['INS00164','Inspecionar tanques de combustível: ensaio de estanqueidade, limpeza e amostra de fuel','Tanques de Combustível','Geral','aco','anual',0,'',1],
+['INS00165','Calibrar instrumentos de medição (manômetros e termômetros) em lab. credenciado — emitir certificado','Instrumentação','Geral','aco','anual',0,'ISO 9001',1],
+/* NOVAS ANUAIS */
+['INS00187','Registrar achados de manutenção no sistema TOTVS ao encerrar cada OS — incluir fotos, desvios e sugestões','Gestão e Rastreabilidade (TOTVS)','Geral','aco','anual',1,'ISO 9001',0],
+
+/* ═══ MADEIRA · SEMANAL ══════════════════════════════════════════════════ */
+['INS-M001','Inspeção visual do casco: rachaduras, fendas, apodrecimento e calafetagem solta','Casco e Estrutura de Madeira','Casco-MAD','wood','semanal',0,'',0],
+['INS-M002','Verificar calafetagem das juntas e costuras — buscar amolecimento ou abertura de juntas','Casco e Estrutura de Madeira','Casco-MAD','wood','semanal',0,'',1],
+['INS-M003','Drenar porão/sentina — medir volume infiltrado e registrar para monitorar tendência','Casco e Estrutura de Madeira','Casco-MAD','wood','semanal',0,'',1],
+['INS-M004','Verificar funcionamento e partida do motor de popa/centro (frio e quente)','Motor Popa/Centro','Motor-MAD','wood','semanal',0,'',0],
+['INS-M005','Verificar nível de óleo e presença de emulsão (agua+óleo) no motor','Motor Popa/Centro','Motor-MAD','wood','semanal',0,'',1],
+['INS-M006','Inspecionar coletes, boias e equipamentos de salvatagem — verificar acessibilidade','Segurança','Geral','wood','semanal',0,'NORMAN-01',0],
+
+/* ═══ MADEIRA · MENSAL ════════════════════════════════════════════════════ */
+['INS-M007','Lixar e aplicar produto preservativo de madeira (éster de bórax ou similar CONAMA/IBAMA)','Conservação da Madeira','Casco-MAD','wood','mensal',0,'CONAMA 357',1],
+['INS-M008','Recalafetagem preventiva em juntas com sinais de amolecimento ou abertura','Conservação da Madeira','Casco-MAD','wood','mensal',0,'',0],
+['INS-M009','Lubrificar ferragens, dobradiças e fechos com graxa marinha resistente à água salgada','Conservação da Madeira','Casco-MAD','wood','mensal',0,'',1],
+['INS-M010','Inspecionar cabos de aço, roldanas e polias — verificar corrosão e lubrificar','Conservação da Madeira','Casco-MAD','wood','mensal',0,'',0],
+['INS-M011','Trocar óleo do motor de popa/centro — especificação do fabricante, anotar horímetro','Motor Popa/Centro','Motor-MAD','wood','mensal',0,'',1],
+['INS-M012','Verificar bateria: tensão (≥12,4V), bornes, carregador e fiação — combater corrosão','Sistema Elétrico / Navegação','Elétrico-MAD','wood','mensal',0,'',1],
+['INS-M013','Testar extintores de incêndio — verificar lacre, validade e pressão','Segurança','Geral','wood','mensal',0,'ABNT',0],
+['INS-M014','Verificar estado de cabos de amarração, espia e ancoragem — substituir se fios rompos>10%','Segurança','Geral','wood','mensal',0,'ABNT NBR 9177',1],
+/* NOVAS MENSAIS MADEIRA */
+['INS-M027','Medir teor de umidade da madeira em pontos internos estruturais com higrômetro (meta: <18%)','Monitoramento de Umidade','Casco-MAD','wood','mensal',1,'',0],
+['INS-M028','Registrar mapa de umidade com pontos e valores — comparar com medição anterior para detectar tendência','Monitoramento de Umidade','Casco-MAD','wood','mensal',1,'',0],
+
+/* ═══ MADEIRA · SEMESTRAL ════════════════════════════════════════════════ */
+['INS-M015','Retirar embarcação da água para inspeção completa do fundo (carenar) — fotografar toda a obra viva','Docagem e Fundo','Casco-MAD','wood','semestral',0,'',1],
+['INS-M016','Aplicar tinta antiincrustante nos pontos de retenção — usar produto homologado IBAMA','Docagem e Fundo','Casco-MAD','wood','semestral',0,'CONAMA 357',1],
+['INS-M017','Verificar quilha, patilhão, ferros de leme e bucha do eixo de leme — folgas e corrosão','Docagem e Fundo','Casco-MAD','wood','semestral',0,'',1],
+['INS-M018','Inspecionar eixo e hélice do motor — folga radial, desgaste de pás e incrustações','Docagem e Fundo','Motor-MAD','wood','semestral',0,'',0],
+['INS-M019','Verificar e substituir ânodos de zinco — substituir se >40% consumidos (madeira retém corrosão)','Docagem e Fundo','Casco-MAD','wood','semestral',0,'NACE SP0169',1],
+['INS-M020','Testar estanqueidade geral após retorno à água — verificar bomba de porão após 24h','Docagem e Fundo','Casco-MAD','wood','semestral',0,'',1],
+/* NOVAS SEMESTRAIS MADEIRA */
+['INS-M029','Inspecionar mastro — verificar fissuras, apodrecimento no casco de encaixe e inspeção por percussão','Estrutura Veleiro / MAPEI','Casco-MAD','wood','semestral',1,'',0],
+['INS-M030','Inspecionar dragonas, tala-mar e fixações de palamenta — substituir elementos com corrosão ativa','Estrutura Veleiro / MAPEI','Casco-MAD','wood','semestral',1,'',0],
+['INS-M031','Inspecionar escotas, adriças e cabos de pano — substituir elementos com mais de 40% de fibras danificadas','Estrutura Veleiro / MAPEI','Casco-MAD','wood','semestral',1,'',0],
+
+/* ═══ MADEIRA · ANUAL ════════════════════════════════════════════════════ */
+['INS-M021','Inspeção estrutural completa com sondagem de apodrecimento por sonda e relatório fotográfico','Inspeção Geral e Documentação','Casco-MAD','wood','anual',0,'',1],
+['INS-M022','Reforma geral de pintura: lixamento ao metal vivo, primer epóxi e tinta de acabamento','Inspeção Geral e Documentação','Casco-MAD','wood','anual',0,'',1],
+['INS-M023','Revisão geral do motor conforme manual do fabricante — calibrar injetores e verificar compressão','Motor Popa/Centro','Motor-MAD','wood','anual',0,'',1],
+['INS-M024','Verificar validade de todos os equipamentos de segurança e navegação — emitir lista de vencimentos','Inspeção Geral e Documentação','Geral','wood','anual',0,'NORMAN-01',1],
+['INS-M025','Verificar documentação e certificados da embarcação (Marinha do Brasil / Capitania dos Portos)','Inspeção Geral e Documentação','Geral','wood','anual',0,'NORMAN-01',0],
+['INS-M026','Avaliar condição estrutural da madeira: sondagem de apodrecimento, percussão e inspeção de reforços','Inspeção Geral e Documentação','Casco-MAD','wood','anual',0,'',1],
+];
+
+/* ══════════════════════════════════════════════════════════════════════════
+   STATE
+══════════════════════════════════════════════════════════════════════════ */
+let fTipo = 'all';
+let fFreq = 'all';
+
+const FREQ_ORDER = ['semanal','mensal','semestral','anual'];
+const FREQ_META  = {
+  semanal:   { label:'Semanal',   ocorr:'52×/ano',  cls:'sem' },
+  mensal:    { label:'Mensal',    ocorr:'12×/ano',  cls:'men' },
+  semestral: { label:'Semestral', ocorr:'2×/ano',   cls:'smt' },
+  anual:     { label:'Anual',     ocorr:'1×/ano',   cls:'anu' },
+};
+
+function fLabel(f){ return FREQ_META[f].label; }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   RENDER
+══════════════════════════════════════════════════════════════════════════ */
+function render() {
+  const q = document.getElementById('srch').value.trim().toLowerCase();
+
+  let rows = DATA.filter(r => {
+    const [code,desc,grupo,ponto,tipo,freq,isNew] = r;
+    const okTipo = fTipo === 'all' || tipo === fTipo || (fTipo === 'nova' && isNew);
+    const okFreq = fFreq === 'all' || freq === fFreq;
+    const okQ    = !q || code.toLowerCase().includes(q) ||
+                         desc.toLowerCase().includes(q) ||
+                         grupo.toLowerCase().includes(q) ||
+                         ponto.toLowerCase().includes(q) ||
+                         r[7].toLowerCase().includes(q);
+    return okTipo && okFreq && okQ;
+  });
+
+  // update counters
+  const nAco  = rows.filter(r=>r[4]==='aco').length;
+  const nWood = rows.filter(r=>r[4]==='wood').length;
+  const nNew  = rows.filter(r=>r[6]===1).length;
+  document.getElementById('hAco').textContent   = nAco;
+  document.getElementById('hWood').textContent  = nWood;
+  document.getElementById('hNew').textContent   = nNew;
+  document.getElementById('hTotal').textContent = rows.length;
+  document.getElementById('cpill').textContent  = `${rows.length} instrução${rows.length!==1?'s':''} visível${rows.length!==1?'s':''}`;
+
+  // sidebar counters
+  document.getElementById('lc-s').textContent  = rows.filter(r=>r[5]==='semanal').length;
+  document.getElementById('lc-m').textContent  = rows.filter(r=>r[5]==='mensal').length;
+  document.getElementById('lc-sm').textContent = rows.filter(r=>r[5]==='semestral').length;
+  document.getElementById('lc-a').textContent  = rows.filter(r=>r[5]==='anual').length;
+
+  const area = document.getElementById('planArea');
+
+  if (rows.length === 0) {
+    area.innerHTML = `<div class="empty"><div class="big">🔍</div><p>Nenhuma instrução encontrada.</p></div>`;
+    return;
+  }
+
+  const freqs = fFreq === 'all' ? FREQ_ORDER : [fFreq];
+  let html = '';
+
+  freqs.forEach((freq, fi) => {
+    const fRows = rows.filter(r => r[5] === freq);
+    if (!fRows.length) return;
+    const meta  = FREQ_META[freq];
+    const newCt = fRows.filter(r=>r[6]===1).length;
+    const isOpen = fi < 2;
+    const bid = `blk_${freq}`;
+
+    html += `<div class="freq-block">
+      <div class="freq-head ${meta.cls} ${isOpen?'open':''}" onclick="toggleBlk(this,'${bid}')">
+        <div>
+          <div class="fh-title">${meta.label}</div>
+          <div class="fh-sub">${meta.ocorr} &middot; TOTVS Protheus SIGAMNT</div>
+        </div>
+        <span class="fh-count">${fRows.length} instruções</span>
+        ${newCt ? `<span class="fh-new">✦ ${newCt} novas Rev.2</span>` : ''}
+        <span class="fh-chev">▶</span>
+      </div>
+      <div class="tbl-wrap ${isOpen?'open':''}" id="${bid}">
+        <table class="ptbl">
+          <thead>
+            <tr>
+              <th class="col-code" style="width:115px">Código</th>
+              <th class="col-tipo" style="width:88px">Tipo</th>
+              <th class="col-grupo" style="width:190px">Sistema / Grupo</th>
+              <th class="col-desc">Instrução</th>
+              <th class="col-ponto" style="width:128px">Ponto Horím.</th>
+              <th class="col-norm" style="width:110px">Norma</th>
+            </tr>
+          </thead>
+          <tbody>`;
+
+    // group by tipo → grupo
+    const tipos = ['aco','wood'].filter(t => fRows.some(r=>r[4]===t));
+    tipos.forEach(tipo => {
+      const tRows = fRows.filter(r=>r[4]===tipo);
+      if (!tRows.length) return;
+      if (tipos.length > 1) {
+        const tipoLabel = tipo === 'aco' ? '⬡ Aço Naval' : '🌿 Madeira / MAPEI';
+        html += `<tr class="gsep ${tipo}"><td colspan="6">${tipoLabel}</td></tr>`;
+      }
+      const grupos = [...new Set(tRows.map(r=>r[2]))];
+      grupos.forEach(grupo => {
+        const gRows = tRows.filter(r=>r[2]===grupo);
+        gRows.forEach((r,i) => {
+          const [code,desc,grp,ponto,t,f,isNew,norm,isImpr] = r;
+          const cCls = isNew ? 'code-ch c-new' : (t==='aco' ? 'code-ch c-aco' : 'code-ch c-wood');
+          const tCls = isNew ? 'tipo-ch tp-new' : (t==='aco' ? 'tipo-ch tp-aco' : 'tipo-ch tp-wood');
+          const tLbl = isNew ? 'Nova' : (t==='aco' ? 'Aço' : 'Madeira');
+          const fCls = `freq-ch f-${f.substring(0,3)}`;
+          const pontoCls = !['Geral','Casco-MAD','Motor-MAD','Elétrico-MAD'].includes(ponto) ? 'ponto-ch p' : 'ponto-ch';
+          const rowCls = isNew ? 'irow t-'+t+' is-new' : (isImpr ? 'irow t-'+t+' is-improved' : 'irow t-'+t);
+          const newBadge = isNew ? '<span class="new-tag">NOVA</span>' : '';
+          const imprBadge = isImpr && !isNew ? '<span class="impr-tag">REV.</span>' : '';
+          const normBadge = norm ? `<span class="norm-badge">${norm}</span>` : '';
+          const showGrp = i === 0;
+
+          html += `<tr class="${rowCls}">
+            <td><span class="${cCls}">${code}</span></td>
+            <td><span class="${tCls}">${tLbl}</span></td>
+            <td class="col-grupo" style="color:var(--ink3);font-size:11.5px">${showGrp ? grp : ''}</td>
+            <td class="desc-cell">${desc}${newBadge}${imprBadge}</td>
+            <td><span class="${pontoCls}">${ponto}</span></td>
+            <td>${normBadge}</td>
+          </tr>`;
+        });
+      });
+    });
+
+    html += `</tbody></table></div></div>`;
+  });
+
+  area.innerHTML = html;
+  highlightQ(q);
+}
+
+function highlightQ(q){
+  if(!q) return;
+  document.querySelectorAll('tr.irow td.desc-cell').forEach(td=>{
+    const t = td.childNodes[0];
+    if(!t) return;
+    const txt = t.textContent || td.textContent;
+    const idx = txt.toLowerCase().indexOf(q);
+    if(idx>=0){
+      const before = txt.slice(0,idx);
+      const match  = txt.slice(idx,idx+q.length);
+      const after  = txt.slice(idx+q.length);
+      // preserve badges
+      const badges = td.innerHTML.match(/<span class="(new|impr)-tag[^"]*">[^<]*<\/span>/g)||[];
+      td.innerHTML = before+`<mark style="background:#fde68a;color:var(--ink);border-radius:2px;padding:0 2px">${match}</mark>`+after+badges.join('');
+    }
+  });
+}
+
+function toggleBlk(h,id){
+  h.classList.toggle('open');
+  document.getElementById(id).classList.toggle('open');
+}
+
+/* ══ FILTERS ══════════════════════════════════════════════════════════════ */
+function setF(dim, btn) {
+  if(dim==='tipo') {
+    fTipo = btn.dataset.v;
+    document.querySelectorAll('#fTipo .chip').forEach(c=>{
+      c.className='chip';
+      if(c.dataset.v===fTipo) c.classList.add('on-'+(fTipo==='all'?'all':fTipo));
+    });
+  } else {
+    fFreq = btn.dataset.v;
+    document.querySelectorAll('#fFreq .chip').forEach(c=>{
+      c.className='chip';
+      if(c.dataset.v===fFreq) c.classList.add('on-'+(fFreq==='all'?'all':fFreq));
+    });
+  }
+  render();
+}
+
+function setFByKey(dim,k){
+  const btn = document.querySelector(`#f${dim==='tipo'?'Tipo':'Freq'} [data-v="${k}"]`);
+  if(btn) setF(dim,btn);
+}
+
+/* ══ MELHORIA PANEL ═══════════════════════════════════════════════════════ */
+function toggleMS(h){
+  const b = h.nextElementSibling;
+  const t = h.querySelector('.ms-toggle');
+  b.classList.toggle('open');
+  t.classList.toggle('open');
+}
+
+/* ══ INIT ══════════════════════════════════════════════════════════════════ */
+render();
+</script>
+</body>
+</html>
